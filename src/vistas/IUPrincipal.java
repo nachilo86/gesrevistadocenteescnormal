@@ -26,21 +26,74 @@ public class IUPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPrincipal = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuDocente = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1366, 768));
+        setMinimumSize(new java.awt.Dimension(840, 640));
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("jMenu3");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("jMenu4");
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("jMenu5");
+        jMenuBar1.add(jMenu5);
+
+        jMenuDocente.setText("Docentes");
+        jMenuDocente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuDocenteMouseClicked(evt);
+            }
+        });
+        jMenuDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuDocenteActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenuDocente);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jDesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jDesktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocenteActionPerformed
+
+    }//GEN-LAST:event_jMenuDocenteActionPerformed
+
+    private void jMenuDocenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuDocenteMouseClicked
+        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
+        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
+        IUGestionarDocente miGestionarDocente = new IUGestionarDocente();
+        jDesktopPrincipal.add(miGestionarDocente);
+        miGestionarDocente.show();
+    }//GEN-LAST:event_jMenuDocenteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -77,5 +130,13 @@ public class IUPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPrincipal;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuDocente;
     // End of variables declaration//GEN-END:variables
 }
