@@ -32,8 +32,17 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenuDocente = new javax.swing.JMenu();
+        jMenuDocConsultar = new javax.swing.JMenuItem();
+        jMenuDocRegistrar = new javax.swing.JMenuItem();
+        jMenuDocModificar = new javax.swing.JMenuItem();
+        jMenuDocEliminar = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1366, 768));
@@ -51,9 +60,6 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("jMenu5");
-        jMenuBar1.add(jMenu5);
-
         jMenuDocente.setText("Docentes");
         jMenuDocente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -65,7 +71,59 @@ public class IUPrincipal extends javax.swing.JFrame {
                 jMenuDocenteActionPerformed(evt);
             }
         });
+
+        jMenuDocConsultar.setText("Consultar");
+        jMenuDocConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuDocConsultarActionPerformed(evt);
+            }
+        });
+        jMenuDocente.add(jMenuDocConsultar);
+
+        jMenuDocRegistrar.setText("Registrar");
+        jMenuDocRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuDocRegistrarActionPerformed(evt);
+            }
+        });
+        jMenuDocente.add(jMenuDocRegistrar);
+
+        jMenuDocModificar.setText("Modificar");
+        jMenuDocModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuDocModificarActionPerformed(evt);
+            }
+        });
+        jMenuDocente.add(jMenuDocModificar);
+
+        jMenuDocEliminar.setText("Eliminar");
+        jMenuDocEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuDocEliminarActionPerformed(evt);
+            }
+        });
+        jMenuDocente.add(jMenuDocEliminar);
+
         jMenuBar1.add(jMenuDocente);
+
+        jMenu5.setText("Materias");
+
+        jMenuItem5.setText("Consultar");
+        jMenu5.add(jMenuItem5);
+
+        jMenuItem6.setText("Registrar");
+        jMenu5.add(jMenuItem6);
+
+        jMenuItem7.setText("Modificar");
+        jMenu5.add(jMenuItem7);
+
+        jMenuItem8.setText("Eliminar");
+        jMenu5.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setText("Ayuda");
+        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -88,12 +146,40 @@ public class IUPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuDocenteActionPerformed
 
     private void jMenuDocenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuDocenteMouseClicked
+
+    }//GEN-LAST:event_jMenuDocenteMouseClicked
+
+    private void jMenuDocConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocConsultarActionPerformed
         //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
         //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
-        IUGestionarDocente miGestionarDocente = new IUGestionarDocente();
-        jDesktopPrincipal.add(miGestionarDocente);
-        miGestionarDocente.show();
-    }//GEN-LAST:event_jMenuDocenteMouseClicked
+        IUConsultarDocente miConsultarDocente = new IUConsultarDocente();
+        jDesktopPrincipal.add(miConsultarDocente);
+        miConsultarDocente.show();
+    }//GEN-LAST:event_jMenuDocConsultarActionPerformed
+
+    private void jMenuDocModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocModificarActionPerformed
+        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
+        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
+        IUModificarDocente miModificarDocente = new IUModificarDocente();
+        jDesktopPrincipal.add(miModificarDocente);
+        miModificarDocente.show();
+    }//GEN-LAST:event_jMenuDocModificarActionPerformed
+
+    private void jMenuDocRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocRegistrarActionPerformed
+        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
+        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
+        IUCargarDocente miCargarDocente = new IUCargarDocente();
+        jDesktopPrincipal.add(miCargarDocente);
+        miCargarDocente.show();
+    }//GEN-LAST:event_jMenuDocRegistrarActionPerformed
+
+    private void jMenuDocEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocEliminarActionPerformed
+        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
+        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
+        IUEliminarDocente miEliminarDocente = new IUEliminarDocente();
+        jDesktopPrincipal.add(miEliminarDocente);
+        miEliminarDocente.show();
+    }//GEN-LAST:event_jMenuDocEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,7 +222,16 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuDocConsultar;
+    private javax.swing.JMenuItem jMenuDocEliminar;
+    private javax.swing.JMenuItem jMenuDocModificar;
+    private javax.swing.JMenuItem jMenuDocRegistrar;
     private javax.swing.JMenu jMenuDocente;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }
