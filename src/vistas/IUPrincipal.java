@@ -53,9 +53,9 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuRegistrarUsuario = new javax.swing.JMenuItem();
+        jMenuModificarUsuario = new javax.swing.JMenuItem();
+        jMenuEliminarUsuario = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -156,14 +156,24 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jMenu7.setText("Usuarios");
 
-        jMenuItem5.setText("Registrar");
-        jMenu7.add(jMenuItem5);
+        jMenuRegistrarUsuario.setText("Registrar");
+        jMenuRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRegistrarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuRegistrarUsuario);
 
-        jMenuItem14.setText("Modificar");
-        jMenu7.add(jMenuItem14);
+        jMenuModificarUsuario.setText("Modificar");
+        jMenuModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuModificarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuModificarUsuario);
 
-        jMenuItem15.setText("Eliminar");
-        jMenu7.add(jMenuItem15);
+        jMenuEliminarUsuario.setText("Eliminar");
+        jMenu7.add(jMenuEliminarUsuario);
 
         jMenuBar1.add(jMenu7);
 
@@ -216,6 +226,33 @@ public class IUPrincipal extends javax.swing.JFrame {
         //Al hacer Clic pregunta si confirma la operación o no.
     }//GEN-LAST:event_jMenuEliminarDocActionPerformed
 
+    private void jMenuRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRegistrarUsuarioActionPerformed
+        //borro las ventanas anteriores
+        jDesktopPrincipal.removeAll();
+        
+        //cargo la ventana principal de usuarios con la tabla
+        IUPrincipalUsuario miPrincipalUsuario = new IUPrincipalUsuario();
+        jDesktopPrincipal.add(miPrincipalUsuario);
+        
+        //cargo el frame para registrar el usuario
+        IURegistrarUsuario miRegistrarUsuario = new IURegistrarUsuario();
+        miRegistrarUsuario.setVisible(true);
+    }//GEN-LAST:event_jMenuRegistrarUsuarioActionPerformed
+
+    private void jMenuModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarUsuarioActionPerformed
+        //borro las ventanas anteriores
+        jDesktopPrincipal.removeAll();
+        
+        //cargo la ventana principal de usuarios con la tabla
+        IUPrincipalUsuario miPrincipalUsuario = new IUPrincipalUsuario();
+        jDesktopPrincipal.add(miPrincipalUsuario);
+        
+        //cargo el frame para modificar el usuario
+        //selecciono de la tabla principal de usuario
+        IUModificarUsuario miModificarUsuario = new IUModificarUsuario();
+        miModificarUsuario.setVisible(true);
+    }//GEN-LAST:event_jMenuModificarUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,22 +299,22 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuDocente;
     private javax.swing.JMenuItem jMenuEliminarDoc;
+    private javax.swing.JMenuItem jMenuEliminarUsuario;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuModificarDoc;
+    private javax.swing.JMenuItem jMenuModificarUsuario;
     private javax.swing.JMenuItem jMenuRegistrarDoc;
+    private javax.swing.JMenuItem jMenuRegistrarUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,12 +8,12 @@ package vistas;
  *
  * @author ILS
  */
-public class IUTablaConsultaDocente extends javax.swing.JInternalFrame {
+public class IUPrincipalMateria extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form IUTablaConsultaDocente
+     * Creates new form IUPrincipalMateria
      */
-    public IUTablaConsultaDocente() {
+    public IUPrincipalMateria() {
         initComponents();
     }
 
