@@ -15,6 +15,9 @@ public class IUPrincipal extends javax.swing.JFrame {
      */
     public IUPrincipal() {
         initComponents();
+        IUPrincipalDocente miPrincipalDocente = new IUPrincipalDocente();
+        jDesktopPrincipal.add(miPrincipalDocente);
+        miPrincipalDocente.show();
     }
 
     /**
@@ -29,36 +32,37 @@ public class IUPrincipal extends javax.swing.JFrame {
         jDesktopPrincipal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
         jMenuDocente = new javax.swing.JMenu();
-        jMenuDocConsultar = new javax.swing.JMenuItem();
-        jMenuDocRegistrar = new javax.swing.JMenuItem();
-        jMenuDocModificar = new javax.swing.JMenuItem();
-        jMenuDocEliminar = new javax.swing.JMenuItem();
+        jMenuRegistrarDoc = new javax.swing.JMenuItem();
+        jMenuModificarDoc = new javax.swing.JMenuItem();
+        jMenuEliminarDoc = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(840, 640));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("jMenu3");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("jMenu4");
-        jMenuBar1.add(jMenu4);
 
         jMenuDocente.setText("Docentes");
         jMenuDocente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,44 +76,72 @@ public class IUPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuDocConsultar.setText("Consultar");
-        jMenuDocConsultar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuRegistrarDoc.setText("Registrar");
+        jMenuRegistrarDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuDocConsultarActionPerformed(evt);
+                jMenuRegistrarDocActionPerformed(evt);
             }
         });
-        jMenuDocente.add(jMenuDocConsultar);
+        jMenuDocente.add(jMenuRegistrarDoc);
 
-        jMenuDocRegistrar.setText("Registrar");
-        jMenuDocRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuModificarDoc.setText("Modificar");
+        jMenuModificarDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuDocRegistrarActionPerformed(evt);
+                jMenuModificarDocActionPerformed(evt);
             }
         });
-        jMenuDocente.add(jMenuDocRegistrar);
+        jMenuDocente.add(jMenuModificarDoc);
 
-        jMenuDocModificar.setText("Modificar");
-        jMenuDocModificar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuEliminarDoc.setText("Eliminar");
+        jMenuEliminarDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuDocModificarActionPerformed(evt);
+                jMenuEliminarDocActionPerformed(evt);
             }
         });
-        jMenuDocente.add(jMenuDocModificar);
-
-        jMenuDocEliminar.setText("Eliminar");
-        jMenuDocEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuDocEliminarActionPerformed(evt);
-            }
-        });
-        jMenuDocente.add(jMenuDocEliminar);
+        jMenuDocente.add(jMenuEliminarDoc);
 
         jMenuBar1.add(jMenuDocente);
 
-        jMenu5.setText("Materias");
+        jMenu2.setText("Asignación de Horas");
 
-        jMenuItem5.setText("Consultar");
-        jMenu5.add(jMenuItem5);
+        jMenuItem1.setText("Asignar");
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setText("Modificar");
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setText("Eliminar");
+        jMenu2.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Licencias");
+
+        jMenuItem4.setText("Registrar");
+        jMenu3.add(jMenuItem4);
+
+        jMenuItem9.setText("Modificar");
+        jMenu3.add(jMenuItem9);
+
+        jMenuItem10.setText("Eliminar");
+        jMenu3.add(jMenuItem10);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Renuncias");
+
+        jMenuItem11.setText("Registrar");
+        jMenu4.add(jMenuItem11);
+
+        jMenuItem12.setText("Modificar");
+        jMenu4.add(jMenuItem12);
+
+        jMenuItem13.setText("Eliminar");
+        jMenu4.add(jMenuItem13);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Materias");
 
         jMenuItem6.setText("Registrar");
         jMenu5.add(jMenuItem6);
@@ -121,6 +153,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenu5.add(jMenuItem8);
 
         jMenuBar1.add(jMenu5);
+
+        jMenu7.setText("Usuarios");
+
+        jMenuItem5.setText("Registrar");
+        jMenu7.add(jMenuItem5);
+
+        jMenuItem14.setText("Modificar");
+        jMenu7.add(jMenuItem14);
+
+        jMenuItem15.setText("Eliminar");
+        jMenu7.add(jMenuItem15);
+
+        jMenuBar1.add(jMenu7);
 
         jMenu6.setText("Ayuda");
         jMenuBar1.add(jMenu6);
@@ -149,37 +194,27 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuDocenteMouseClicked
 
-    private void jMenuDocConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocConsultarActionPerformed
-        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
-        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
-        IUConsultarDocente miConsultarDocente = new IUConsultarDocente();
-        jDesktopPrincipal.add(miConsultarDocente);
-        miConsultarDocente.show();
-    }//GEN-LAST:event_jMenuDocConsultarActionPerformed
-
-    private void jMenuDocModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocModificarActionPerformed
+    private void jMenuModificarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarDocActionPerformed
         //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
         //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
         IUModificarDocente miModificarDocente = new IUModificarDocente();
         jDesktopPrincipal.add(miModificarDocente);
         miModificarDocente.show();
-    }//GEN-LAST:event_jMenuDocModificarActionPerformed
+    }//GEN-LAST:event_jMenuModificarDocActionPerformed
 
-    private void jMenuDocRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocRegistrarActionPerformed
+    private void jMenuRegistrarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRegistrarDocActionPerformed
         //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
         //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
-        IUCargarDocente miCargarDocente = new IUCargarDocente();
-        jDesktopPrincipal.add(miCargarDocente);
-        miCargarDocente.show();
-    }//GEN-LAST:event_jMenuDocRegistrarActionPerformed
+        IURegistrarDocente miRegistrarDocente = new IURegistrarDocente();
+        jDesktopPrincipal.add(miRegistrarDocente);
+        miRegistrarDocente.show();
+    }//GEN-LAST:event_jMenuRegistrarDocActionPerformed
 
-    private void jMenuDocEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDocEliminarActionPerformed
-        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
-        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
-        IUEliminarDocente miEliminarDocente = new IUEliminarDocente();
-        jDesktopPrincipal.add(miEliminarDocente);
-        miEliminarDocente.show();
-    }//GEN-LAST:event_jMenuDocEliminarActionPerformed
+    private void jMenuEliminarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEliminarDocActionPerformed
+        //EL BOTÓN NO APARECE.
+        //Cuando se selecciona un Docente en la Tabla figura la Opción Disponible
+        //Al hacer Clic pregunta si confirma la operación o no.
+    }//GEN-LAST:event_jMenuEliminarDocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,15 +258,26 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuDocConsultar;
-    private javax.swing.JMenuItem jMenuDocEliminar;
-    private javax.swing.JMenuItem jMenuDocModificar;
-    private javax.swing.JMenuItem jMenuDocRegistrar;
     private javax.swing.JMenu jMenuDocente;
+    private javax.swing.JMenuItem jMenuEliminarDoc;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuModificarDoc;
+    private javax.swing.JMenuItem jMenuRegistrarDoc;
     // End of variables declaration//GEN-END:variables
 }
