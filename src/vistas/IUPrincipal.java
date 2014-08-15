@@ -4,6 +4,8 @@
  */
 package vistas;
 
+import javax.swing.UIManager;
+
 /**
  *
  * @author ILS
@@ -15,9 +17,7 @@ public class IUPrincipal extends javax.swing.JFrame {
      */
     public IUPrincipal() {
         initComponents();
-        IUPrincipalDocente miPrincipalDocente = new IUPrincipalDocente();
-        jDesktopPrincipal.add(miPrincipalDocente);
-        miPrincipalDocente.show();
+
     }
 
     /**
@@ -31,26 +31,26 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBotonRegDoc = new javax.swing.JButton();
+        jBotonModDoc = new javax.swing.JButton();
+        jBotonElimDoc = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jBotonAsignHora = new javax.swing.JButton();
+        jBotonModHora = new javax.swing.JButton();
+        jBotonElimHora = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        jBotonRegLic = new javax.swing.JButton();
+        jBotonModLic = new javax.swing.JButton();
+        jBotonElimLic = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        jBotonRegRen = new javax.swing.JButton();
+        jBotonModRen = new javax.swing.JButton();
+        jBotonElimRen = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton16 = new javax.swing.JButton();
+        jTablaDoc = new javax.swing.JTable();
+        jBotonActGrillaDoc = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuDocente = new javax.swing.JMenu();
@@ -59,13 +59,13 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenuEliminarDoc = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuRegMat = new javax.swing.JMenuItem();
+        jMenuModMat = new javax.swing.JMenuItem();
+        jMenuElimMat = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuRegistrarUsuario = new javax.swing.JMenuItem();
-        jMenuModificarUsuario = new javax.swing.JMenuItem();
-        jMenuEliminarUsuario = new javax.swing.JMenuItem();
+        jMenuRegUser = new javax.swing.JMenuItem();
+        jMenuModUser = new javax.swing.JMenuItem();
+        jMenuElimUser = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,14 +75,24 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestionar Docentes"));
 
-        jButton1.setText("Registrar");
-
-        jButton2.setText("Modificar");
-
-        jButton3.setText("Eliminar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jBotonRegDoc.setText("Registrar");
+        jBotonRegDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jBotonRegDocActionPerformed(evt);
+            }
+        });
+
+        jBotonModDoc.setText("Modificar");
+        jBotonModDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonModDocActionPerformed(evt);
+            }
+        });
+
+        jBotonElimDoc.setText("Eliminar");
+        jBotonElimDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonElimDocActionPerformed(evt);
             }
         });
 
@@ -90,104 +100,109 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonRegDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+            .addComponent(jBotonModDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonElimDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonRegDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonModDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonElimDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestionar Horas"));
 
-        jButton4.setText("Asignar");
+        jBotonAsignHora.setText("Asignar");
+        jBotonAsignHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonAsignHoraActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Modificar");
+        jBotonModHora.setText("Modificar");
 
-        jButton6.setText("Eliminar");
+        jBotonElimHora.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonAsignHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonModHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonElimHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonAsignHora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonModHora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonElimHora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestionar Licencias"));
 
-        jButton7.setText("Registrar");
+        jBotonRegLic.setText("Registrar");
 
-        jButton8.setText("Modificar");
+        jBotonModLic.setText("Modificar");
 
-        jButton9.setText("Eliminar");
+        jBotonElimLic.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonRegLic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonModLic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonElimLic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonRegLic, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonModLic, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonElimLic, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestionar Renuncias"));
 
-        jButton13.setText("Registrar");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        jBotonRegRen.setText("Registrar");
+        jBotonRegRen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                jBotonRegRenActionPerformed(evt);
             }
         });
 
-        jButton14.setText("Modificar");
+        jBotonModRen.setText("Modificar");
 
-        jButton15.setText("Eliminar");
+        jBotonElimRen.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonRegRen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonModRen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonElimRen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonRegRen, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonModRen, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonElimRen, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -220,7 +235,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Listado de Docentes"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaDoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -231,9 +246,14 @@ public class IUPrincipal extends javax.swing.JFrame {
                 "Legajo", "Nombre y Apellido", "Materia", "Estado"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTablaDoc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTablaDocPropertyChange(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTablaDoc);
 
-        jButton16.setText("Actualizar Grilla");
+        jBotonActGrillaDoc.setText("Actualizar Grilla");
 
         jLabel1.setText("NOTA:");
 
@@ -242,17 +262,17 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonActGrillaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotonActGrillaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1))
@@ -310,37 +330,52 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("Materias");
 
-        jMenuItem6.setText("Registrar");
-        jMenu5.add(jMenuItem6);
+        jMenuRegMat.setText("Registrar");
+        jMenuRegMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRegMatActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuRegMat);
 
-        jMenuItem7.setText("Modificar");
-        jMenu5.add(jMenuItem7);
+        jMenuModMat.setText("Modificar");
+        jMenuModMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuModMatActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuModMat);
 
-        jMenuItem8.setText("Eliminar");
-        jMenu5.add(jMenuItem8);
+        jMenuElimMat.setText("Eliminar");
+        jMenuElimMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuElimMatActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuElimMat);
 
         jMenuBar1.add(jMenu5);
 
         jMenu7.setText("Usuarios");
 
-        jMenuRegistrarUsuario.setText("Registrar");
-        jMenuRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jMenuRegUser.setText("Registrar");
+        jMenuRegUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuRegistrarUsuarioActionPerformed(evt);
+                jMenuRegUserActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuRegistrarUsuario);
+        jMenu7.add(jMenuRegUser);
 
-        jMenuModificarUsuario.setText("Modificar");
-        jMenuModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jMenuModUser.setText("Modificar");
+        jMenuModUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuModificarUsuarioActionPerformed(evt);
+                jMenuModUserActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuModificarUsuario);
+        jMenu7.add(jMenuModUser);
 
-        jMenuEliminarUsuario.setText("Eliminar");
-        jMenu7.add(jMenuEliminarUsuario);
+        jMenuElimUser.setText("Eliminar");
+        jMenu7.add(jMenuElimUser);
 
         jMenuBar1.add(jMenu7);
 
@@ -376,61 +411,70 @@ public class IUPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuDocenteMouseClicked
 
     private void jMenuModificarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarDocActionPerformed
-        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
-        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
-        IUModificarDocente miModificarDocente = new IUModificarDocente();
-        jDesktopPrincipal.add(miModificarDocente);
-        miModificarDocente.show();
+
     }//GEN-LAST:event_jMenuModificarDocActionPerformed
 
     private void jMenuRegistrarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRegistrarDocActionPerformed
-        //SE CARGA EL INTERNAL FRAME DE CADA VENTANA DE GESTIÓN DENTRO DE LA VENTANA PRINCIPAL
-        //POR CADA VENTANA INTERNA HACEMOS EL TRABAJO INTERNO, SIN SALIR DE UNA SOLA VENTANA.
-        IURegistrarDocente miRegistrarDocente = new IURegistrarDocente();
-        jDesktopPrincipal.add(miRegistrarDocente);
-        miRegistrarDocente.show();
+
     }//GEN-LAST:event_jMenuRegistrarDocActionPerformed
 
     private void jMenuEliminarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEliminarDocActionPerformed
-        //EL BOTÓN NO APARECE.
-        //Cuando se selecciona un Docente en la Tabla figura la Opción Disponible
-        //Al hacer Clic pregunta si confirma la operación o no.
+        
     }//GEN-LAST:event_jMenuEliminarDocActionPerformed
 
-    private void jMenuRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRegistrarUsuarioActionPerformed
-        //borro las ventanas anteriores
-        jDesktopPrincipal.removeAll();
-        
-        //cargo la ventana principal de usuarios con la tabla
+    private void jMenuRegUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRegUserActionPerformed
         IUPrincipalUsuario miPrincipalUsuario = new IUPrincipalUsuario();
-        jDesktopPrincipal.add(miPrincipalUsuario);
-        
-        //cargo el frame para registrar el usuario
-        IURegistrarUsuario miRegistrarUsuario = new IURegistrarUsuario();
-        miRegistrarUsuario.setVisible(true);
-    }//GEN-LAST:event_jMenuRegistrarUsuarioActionPerformed
+        miPrincipalUsuario.setVisible(true);
+    }//GEN-LAST:event_jMenuRegUserActionPerformed
 
-    private void jMenuModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarUsuarioActionPerformed
-        //borro las ventanas anteriores
-        jDesktopPrincipal.removeAll();
-        
-        //cargo la ventana principal de usuarios con la tabla
+    private void jMenuModUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModUserActionPerformed
         IUPrincipalUsuario miPrincipalUsuario = new IUPrincipalUsuario();
-        jDesktopPrincipal.add(miPrincipalUsuario);
-        
-        //cargo el frame para modificar el usuario
-        //selecciono de la tabla principal de usuario
-        IUModificarUsuario miModificarUsuario = new IUModificarUsuario();
-        miModificarUsuario.setVisible(true);
-    }//GEN-LAST:event_jMenuModificarUsuarioActionPerformed
+        miPrincipalUsuario.setVisible(true);
+    }//GEN-LAST:event_jMenuModUserActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jBotonElimDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimDocActionPerformed
+        IUPrincipalUsuario miPrincipalUsuario = new IUPrincipalUsuario();
+        miPrincipalUsuario.setVisible(true);
+        //miEliminarDocente.setVisible(true);    }//GEN-LAST:event_jBotonElimDocActionPerformed
+    }
+    
+    private void jBotonRegRenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegRenActionPerformed
+    }//GEN-LAST:event_jBotonRegRenActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void jBotonRegDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegDocActionPerformed
+        IURegistrarDocente miRegistrarDocente = new IURegistrarDocente();
+        miRegistrarDocente.setVisible(true);
+
+    }//GEN-LAST:event_jBotonRegDocActionPerformed
+
+    private void jBotonModDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonModDocActionPerformed
+        IUModificarDocente miModificarDocente = new IUModificarDocente();
+        miModificarDocente.setVisible(true);
+    }//GEN-LAST:event_jBotonModDocActionPerformed
+
+    private void jBotonAsignHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAsignHoraActionPerformed
+        IUAsignarHoraDocente miAsignarHoraDocente = new IUAsignarHoraDocente();
+        miAsignarHoraDocente.setVisible(true);
+    }//GEN-LAST:event_jBotonAsignHoraActionPerformed
+
+    private void jMenuRegMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRegMatActionPerformed
+        IUPrincipalMateria miPrincipalMateria = new IUPrincipalMateria();
+        miPrincipalMateria.setVisible(true);
+    }//GEN-LAST:event_jMenuRegMatActionPerformed
+
+    private void jMenuModMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModMatActionPerformed
+        IUPrincipalMateria miPrincipalMateria = new IUPrincipalMateria();
+        miPrincipalMateria.setVisible(true);
+    }//GEN-LAST:event_jMenuModMatActionPerformed
+
+    private void jMenuElimMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuElimMatActionPerformed
+        IUPrincipalMateria miPrincipalMateria = new IUPrincipalMateria();
+        miPrincipalMateria.setVisible(true);
+    }//GEN-LAST:event_jMenuElimMatActionPerformed
+
+    private void jTablaDocPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTablaDocPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_jTablaDocPropertyChange
 
     /**
      * @param args the command line arguments
@@ -441,13 +485,8 @@ public class IUPrincipal extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+        try{
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(IUPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -467,47 +506,43 @@ public class IUPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton jBotonActGrillaDoc;
+    private javax.swing.JButton jBotonAsignHora;
+    private javax.swing.JButton jBotonElimDoc;
+    private javax.swing.JButton jBotonElimHora;
+    private javax.swing.JButton jBotonElimLic;
+    private javax.swing.JButton jBotonElimRen;
+    private javax.swing.JButton jBotonModDoc;
+    private javax.swing.JButton jBotonModHora;
+    private javax.swing.JButton jBotonModLic;
+    private javax.swing.JButton jBotonModRen;
+    private javax.swing.JButton jBotonRegDoc;
+    private javax.swing.JButton jBotonRegLic;
+    private javax.swing.JButton jBotonRegRen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuDocente;
+    private javax.swing.JMenuItem jMenuElimMat;
+    private javax.swing.JMenuItem jMenuElimUser;
     private javax.swing.JMenuItem jMenuEliminarDoc;
-    private javax.swing.JMenuItem jMenuEliminarUsuario;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuModMat;
+    private javax.swing.JMenuItem jMenuModUser;
     private javax.swing.JMenuItem jMenuModificarDoc;
-    private javax.swing.JMenuItem jMenuModificarUsuario;
+    private javax.swing.JMenuItem jMenuRegMat;
+    private javax.swing.JMenuItem jMenuRegUser;
     private javax.swing.JMenuItem jMenuRegistrarDoc;
-    private javax.swing.JMenuItem jMenuRegistrarUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTablaDoc;
     // End of variables declaration//GEN-END:variables
 }
