@@ -10,12 +10,12 @@ import javax.swing.UIManager;
  *
  * @author ILS
  */
-public class MSEliminarUsuario extends javax.swing.JFrame {
+public class MSDocenteEliminar extends javax.swing.JFrame {
 
     /**
-     * Creates new form MSEliminarUsuario
+     * Creates new form MSDocenteEliminar
      */
-    public MSEliminarUsuario() {
+    public MSDocenteEliminar() {
         initComponents();
     }
 
@@ -56,20 +56,20 @@ public class MSEliminarUsuario extends javax.swing.JFrame {
         try{
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSDocenteEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSDocenteEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSDocenteEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSDocenteEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MSEliminarUsuario().setVisible(true);
+                new MSDocenteEliminar().setVisible(true);
             }
         });
     }

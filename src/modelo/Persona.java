@@ -13,9 +13,14 @@ public class Persona {
     private String apellido;
     private int dni;
     private String domicilio;
+    private String localidad;
+    private String telefono;
+    private String numero;
+    private String barrio;
     private Date fechanacimiento;
     private char sexo;
 
+    // GETTERS AND SETTERS
     /**
      * @return the nombre
      */
@@ -99,7 +104,81 @@ public class Persona {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
+
+    /**
+     * @return the localidad
+     */
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    /**
+     * @param localidad the localidad to set
+     */
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
+    /**
+     * @return the telefono
+     */
+    public String getTelefono() {
+        return telefono;
+    }
+
+    /**
+     * @param telefono the telefono to set
+     */
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    /**
+     * @return the numero
+     */
+    public String getNumero() {
+        return numero;
+    }
+
+    /**
+     * @param numero the numero to set
+     */
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    /**
+     * @return the barrio
+     */
+    public String getBarrio() {
+        return barrio;
+    }
+
+    /**
+     * @param barrio the barrio to set
+     */
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
     
+    // METODOS
+    public void registrarPersona()
+    {
+        
+    }
     
+    public void modificarPersona()
+    {
+        
+    }
     
+    public void eliminarPersona()
+    {
+        
+    }
+    
+    public void consultarPersona()
+    {
+        
+    }
 }

@@ -10,12 +10,12 @@ import javax.swing.UIManager;
  *
  * @author ILS
  */
-public class MSEliminarMateria extends javax.swing.JFrame {
+public class MSUsuarioEliminar extends javax.swing.JFrame {
 
     /**
-     * Creates new form MSEliminarMateria
+     * Creates new form MSUsuarioEliminar
      */
-    public MSEliminarMateria() {
+    public MSUsuarioEliminar() {
         initComponents();
     }
 
@@ -56,20 +56,20 @@ public class MSEliminarMateria extends javax.swing.JFrame {
         try{
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSUsuarioEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSUsuarioEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSUsuarioEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MSEliminarMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MSUsuarioEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MSEliminarMateria().setVisible(true);
+                new MSUsuarioEliminar().setVisible(true);
             }
         });
     }

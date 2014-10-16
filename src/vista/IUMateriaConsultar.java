@@ -4,16 +4,18 @@
  */
 package vista;
 
+import javax.swing.UIManager;
+
 /**
  *
  * @author ILS
  */
-public class IUPrincipalUsuario extends javax.swing.JFrame {
+public class IUMateriaConsultar extends javax.swing.JFrame {
 
     /**
      * Creates new form IUPrincipal
      */
-    public IUPrincipalUsuario() {
+    public IUMateriaConsultar() {
         initComponents();
 
     }
@@ -29,9 +31,9 @@ public class IUPrincipalUsuario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jBotonRegUser = new javax.swing.JButton();
-        jBotonModUser = new javax.swing.JButton();
-        jBotonElimUser = new javax.swing.JButton();
+        jBotonRegMat = new javax.swing.JButton();
+        jBotonModMat = new javax.swing.JButton();
+        jBotonElimMat = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -44,26 +46,26 @@ public class IUPrincipalUsuario extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestionar Usuarios"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestionar Materias"));
 
-        jBotonRegUser.setText("Registrar");
-        jBotonRegUser.addActionListener(new java.awt.event.ActionListener() {
+        jBotonRegMat.setText("Registrar");
+        jBotonRegMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonRegUserActionPerformed(evt);
+                jBotonRegMatActionPerformed(evt);
             }
         });
 
-        jBotonModUser.setText("Modificar");
-        jBotonModUser.addActionListener(new java.awt.event.ActionListener() {
+        jBotonModMat.setText("Modificar");
+        jBotonModMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonModUserActionPerformed(evt);
+                jBotonModMatActionPerformed(evt);
             }
         });
 
-        jBotonElimUser.setText("Eliminar");
-        jBotonElimUser.addActionListener(new java.awt.event.ActionListener() {
+        jBotonElimMat.setText("Eliminar");
+        jBotonElimMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonElimUserActionPerformed(evt);
+                jBotonElimMatActionPerformed(evt);
             }
         });
 
@@ -71,18 +73,18 @@ public class IUPrincipalUsuario extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBotonRegUser, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-            .addComponent(jBotonModUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBotonElimUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonRegMat, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+            .addComponent(jBotonModMat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonElimMat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jBotonRegUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonRegMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBotonModUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonModMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBotonElimUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonElimMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -103,17 +105,17 @@ public class IUPrincipalUsuario extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Listado de Usuarios"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Listado de Materias"));
 
         jTablaDoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Usuario", "Tipo Usuario", "Estado"
+                "Materia", "Curso", "División", "Carga Horaria"
             }
         ));
         jScrollPane1.setViewportView(jTablaDoc);
@@ -172,22 +174,22 @@ public class IUPrincipalUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBotonElimUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimUserActionPerformed
+    private void jBotonElimMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimMatActionPerformed
 
         
-        //miEliminarDocente.setVisible(true);    }//GEN-LAST:event_jBotonElimUserActionPerformed
+        //miEliminarDocente.setVisible(true);    }//GEN-LAST:event_jBotonElimMatActionPerformed
     }
     
-    private void jBotonRegUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegUserActionPerformed
-        IURegistrarUsuario miRegistrarUsuario = new IURegistrarUsuario();
-        miRegistrarUsuario.setVisible(true);
+    private void jBotonRegMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegMatActionPerformed
+        IUMateriaRegistrar miRegistrarMateria = new IUMateriaRegistrar();
+        miRegistrarMateria.setVisible(true);
 
-    }//GEN-LAST:event_jBotonRegUserActionPerformed
+    }//GEN-LAST:event_jBotonRegMatActionPerformed
 
-    private void jBotonModUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonModUserActionPerformed
-        IUModificarUsuario miModificarUsuario = new IUModificarUsuario();
-        miModificarUsuario.setVisible(true);
-    }//GEN-LAST:event_jBotonModUserActionPerformed
+    private void jBotonModMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonModMatActionPerformed
+        IUMateriaModificar miModificarMateria = new IUMateriaModificar();
+        miModificarMateria.setVisible(true);
+    }//GEN-LAST:event_jBotonModMatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,36 +200,31 @@ public class IUPrincipalUsuario extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+        try{
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IUPrincipalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUMateriaConsultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IUPrincipalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUMateriaConsultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IUPrincipalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUMateriaConsultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IUPrincipalUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUMateriaConsultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IUPrincipalUsuario().setVisible(true);
+                new IUMateriaConsultar().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonActGrillaDoc;
-    private javax.swing.JButton jBotonElimUser;
-    private javax.swing.JButton jBotonModUser;
-    private javax.swing.JButton jBotonRegUser;
+    private javax.swing.JButton jBotonElimMat;
+    private javax.swing.JButton jBotonModMat;
+    private javax.swing.JButton jBotonRegMat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
