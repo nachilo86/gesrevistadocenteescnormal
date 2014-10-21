@@ -65,7 +65,7 @@ public class IUMateriaModificar extends javax.swing.JFrame {
 
         jLabel3.setText("División");
 
-        jLabel5.setText("Cantidad de Horas");
+        jLabel5.setText("Carga Horaria");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

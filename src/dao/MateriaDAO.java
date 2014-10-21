@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-package modelo;
+package dao;
 
 /** @author IgnacioSaravia <ILSSoftware2014>  */
-public class Administrativo {
+public class MateriaDAO {
 
 }

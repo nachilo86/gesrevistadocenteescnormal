@@ -469,7 +469,7 @@ public class IUPrincipal extends javax.swing.JFrame {
     }
     
     private void jBotonRegRenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegRenActionPerformed
-        IURenunciaDocenteRegistrar miRegistrarRenunciaDocente = new IURenunciaDocenteRegistrar();
+        IUDocenteHoraRenunciaRegistrar miRegistrarRenunciaDocente = new IUDocenteHoraRenunciaRegistrar();
         miRegistrarRenunciaDocente.setVisible(true);
     }//GEN-LAST:event_jBotonRegRenActionPerformed
 
@@ -488,18 +488,18 @@ public class IUPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonModDocActionPerformed
 
     private void jBotonAsignHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAsignHoraActionPerformed
-        IUDesignarHoraDocente miAsignarHoraDocente = new IUDesignarHoraDocente();
+        IUDocenteHoraDesignar miAsignarHoraDocente = new IUDocenteHoraDesignar();
         miAsignarHoraDocente.setVisible(true);      
 
     }//GEN-LAST:event_jBotonAsignHoraActionPerformed
 
     private void jBotonElimHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimHoraActionPerformed
-        IUEliminarHoraDocente miEliminarHoraDocente = new IUEliminarHoraDocente();
+        IUDocenteHoraEliminar miEliminarHoraDocente = new IUDocenteHoraEliminar();
         miEliminarHoraDocente.setVisible(true);
     }//GEN-LAST:event_jBotonElimHoraActionPerformed
 
     private void jBotonRegLicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegLicActionPerformed
-        IULicenciaDocenteRegistrar miRegistrarLicenciaDocente = new IULicenciaDocenteRegistrar();
+        IUDocenteHoraLicenciaRegistrar miRegistrarLicenciaDocente = new IUDocenteHoraLicenciaRegistrar();
         miRegistrarLicenciaDocente.setVisible(true);
     }//GEN-LAST:event_jBotonRegLicActionPerformed
 
