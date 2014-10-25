@@ -6,8 +6,12 @@
 package dao.implementacion;
 
 import dao.*;
+import modelo.Persona;
 
 /** @author IgnacioSaravia <ILSSoftware2014>  */
 public class PersonaDAOImp {
+    
+    public void registrar (Persona persona){}
+    
 
 }
