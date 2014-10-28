@@ -9,10 +9,14 @@ import java.util.Date;
 
 /** @author IgnacioSaravia <ILSSoftware2014>  */
 public class Docente extends Persona {
+    private int coddocente;
+    private int codpersona;
+    
     private String titulo;
     private Date fechaTitulo;
     private Date fechaIngreso;
     private int totalHorasActivas;
+    private String estado;
 
     /**
      * @return the titulo
@@ -88,5 +92,25 @@ public class Docente extends Persona {
     {
         
     }
+    
+    public void verificarDocente()
+    {
+        
+    }
+    
+    public void verificarCargaHoraria()
+    {
+        
+    }
+    
+    public void verificarEstado()
+    {
+        
+    }
+    
+    public void actualizarEstado()
+    {
+    }
+    
 
 }

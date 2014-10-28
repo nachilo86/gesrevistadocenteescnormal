@@ -65,7 +65,15 @@ public class IUDLicenciaRegistrar extends javax.swing.JFrame {
             new String [] {
                 "Materia", "Curso", "División", "Carga Horaria", "Estado"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

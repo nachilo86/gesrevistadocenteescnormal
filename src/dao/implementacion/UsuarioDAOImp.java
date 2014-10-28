@@ -5,9 +5,9 @@
 
 package dao.implementacion;
 
-import dao.*;
+import dao.UsuarioDAO;
 
 /** @author IgnacioSaravia <ILSSoftware2014>  */
-public class UsuarioDAOImp {
+public class UsuarioDAOImp implements UsuarioDAO {
 
 }

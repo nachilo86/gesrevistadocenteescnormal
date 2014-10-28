@@ -8,30 +8,23 @@ package modelo;
 import java.util.Date;
 
 /** @author IgnacioSaravia <ILSSoftware2014>  */
-public class RegistroHoras {
-    private Date fechaDesde;
-    private Date fechaHasta;
+public class HoraDesignada {
+    
+    private int codhoradesignada;
+    private int coddocente;
+    private int codusuario;
+    private int codsituacionrevista;
+    private int codmateria;
+    
     private Date fechaDesignacion;
+    private Date fechaHasta;
+    private Date fechaOperacion;
     private String estadoHoras;
     private String caracterDocente;
     private String normativa;
     private String observaciones;
-
-    /**
-     * @return the fechaDesde
-     */
-    public Date getFechaDesde() {
-        return fechaDesde;
-    }
-
-    /**
-     * @param fechaDesde the fechaDesde to set
-     */
-    public void setFechaDesde(Date fechaDesde) {
-        this.fechaDesde = fechaDesde;
-    }
-
-    /**
+        
+   /**
      * @return the fechaHasta
      */
     public Date getFechaHasta() {
@@ -59,6 +52,19 @@ public class RegistroHoras {
         this.fechaDesignacion = fechaDesignacion;
     }
 
+        /**
+     * @return the fechaOperacion
+     */
+    public Date getFechaOperacion() {
+        return fechaOperacion;
+    }
+
+    /**
+     * @param fechaOperacion the fechaOperacion to set
+     */
+    public void setFechaOperacion(Date fechaOperacion) {
+        this.fechaOperacion = fechaOperacion;
+    }
     /**
      * @return the estadoHoras
      */
@@ -119,11 +125,7 @@ public class RegistroHoras {
     {
         
     }
-    
-    public void modificarHora()
-    {
-    }
-    
+      
     public void eliminarHora()
     {
     }
@@ -133,39 +135,14 @@ public class RegistroHoras {
         
     }
     
-    public void registrarRenuncia()
-    {
-    }
-    
-    public void consultarRenuncia()
-    {
-    }
-    
-    public void modificarRenuncia()
-    {
-    }
-    
-    public void eliminarRenuncia()
-    {
-    }
-    
-    public void registrarLicencia()
+    public void verificarEstado()
     {
         
     }
     
-    public void consultarLicencia()
+    public void actualizarEstado()
     {
         
     }
     
-    public void modificarLicencia()
-    {
-        
-    }
-    
-    public void eliminarLicencia()
-    {
-        
-    }
 }

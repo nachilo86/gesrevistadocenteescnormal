@@ -4,16 +4,28 @@
  */
 package vista;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import vista.renuncia.IUDRenunciaRegistrar;
 import vista.licencia.IUDLicenciaRegistrar;
 import vista.designacion.IUDHoraEliminar;
 import vista.designacion.IUDHoraDesignar;
-import vista.materia.IUMateriaConsultar;
-import vista.usuario.IUUsuarioConsultar;
 import vista.docente.IUDocenteModificar;
 import vista.docente.IUDocenteRegistrar;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import vista.designacion.IUDHoraConsultar;
+import vista.docente.IUDocenteConsultar;
+import vista.docente.IUDocenteEliminar;
+import vista.licencia.IUDLicenciaConsultar;
+import vista.licencia.IUDLicenciaEliminar;
+import vista.licencia.IUDLicenciaModificar;
+import vista.materia.IUMateriaPrincipal;
+import vista.renuncia.IUDRenunciaConsultar;
+import vista.renuncia.IUDRenunciaEliminar;
+import vista.renuncia.IUDRenunciaModificar;
+import vista.usuario.IUUsuarioPrincipal;
 
 /**
  *
@@ -28,11 +40,57 @@ public class IUPrincipal extends javax.swing.JFrame {
         initComponents();
         
         //JScrollPane barraTablaDoc = new JScrollPane(jTablaDoc);
-        //modelo
-                
+        //modelo              
+        
         DefaultTableModel modeloTablaDoc = (DefaultTableModel)jTablaDoc.getModel();
-        DefaultTableModel modeloTablaDocNuevo = (DefaultTableModel) jTablaDocNuevo.getModel();       
-               
+        
+        String[] datos = new String[8];
+        datos[0]="aa";
+        datos[1]="bb";
+        datos[2]="cc";
+        modeloTablaDoc.addRow(datos);
+        
+
+        //LISTENERS
+        jTablaDoc.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e){
+                jBotonModDoc.setEnabled(true);
+                jBotonConsDoc.setEnabled(true);
+                jBotonElimDoc.setEnabled(true);
+                jBotonAsignHora.setEnabled(true);
+                jBotonConsHora.setEnabled(true);
+                jBotonConsLic.setEnabled(true);
+                jBotonConsRen.setEnabled(true);
+                jBotonElimDoc.setEnabled(true);
+                jBotonElimHora.setEnabled(true);
+                jBotonElimLic.setEnabled(true);
+                jBotonElimRen.setEnabled(true);
+                jBotonModDoc.setEnabled(true);
+                jBotonModLic.setEnabled(true);
+                jBotonModRen.setEnabled(true);
+                jBotonRegDoc.setEnabled(true);
+                jBotonRegLic.setEnabled(true);
+                jBotonRegRen.setEnabled(true);
+                jBotonSitRev.setEnabled(true);
+                
+                
+                
+            }
+            
+            public void mousePressed(MouseEvent e){
+                if (e.getClickCount()==2){
+                    //JTable target = (JTable)e.getSource();
+                    //int row = target.getSelectedRow();
+                    //int column = target.getSelectedColumn();
+                    JOptionPane.showMessageDialog(null, "aqui dispara la consulta del docente");
+                }
+            }
+        }
+                );
+        
+        
+        
+              
         //GESTIÓN DE LA TABLA
         
 
@@ -42,6 +100,20 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     private void cargarTabla()
     {
+        //limpiar();
+        //List<Docente> listadoDocente = miDocenteDAO.selectAll();
+        //DefaultTableModel modelo=(DefaultTableModel)tblTablaAlumno.getModel();
+        //String[] datosDocente=new String[8];
+
+        //for (Docente docente:listadoDocente){
+            //datosDocente[0]=String.valueOf(docente.getId());
+            //datosDocente[1]=docente.getDni();
+            //datosDocente[2]=docente.getApellido();
+            //datosDocente[3]=docente.getNombre();
+            //datosDocente[4]=String.valueOf(docente.getEdad());
+            
+            //modeloTablaDoc.addRow(datosDocente);
+        //}
 
     }
 
@@ -58,48 +130,46 @@ public class IUPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator2 = new javax.swing.JSeparator();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jBotonRegDoc = new javax.swing.JButton();
-        jBotonModDoc = new javax.swing.JButton();
-        jBotonElimDoc = new javax.swing.JButton();
-        jBotonElimDoc1 = new javax.swing.JButton();
+        jBotonSitRev = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jBotonAsignHora = new javax.swing.JButton();
         jBotonElimHora = new javax.swing.JButton();
-        jBotonAsignHora1 = new javax.swing.JButton();
+        jBotonConsHora = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jBotonRegLic = new javax.swing.JButton();
         jBotonModLic = new javax.swing.JButton();
         jBotonElimLic = new javax.swing.JButton();
-        jBotonAsignHora2 = new javax.swing.JButton();
+        jBotonConsLic = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jBotonRegRen = new javax.swing.JButton();
         jBotonModRen = new javax.swing.JButton();
         jBotonElimRen = new javax.swing.JButton();
-        jBotonAsignHora3 = new javax.swing.JButton();
+        jBotonConsRen = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaDoc = new javax.swing.JTable();
         jBotonActGrillaDoc = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jBotonActGrillaDoc1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTablaDocNuevo = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
+        jBotonRegDoc = new javax.swing.JButton();
+        jBotonModDoc = new javax.swing.JButton();
+        jBotonConsDoc = new javax.swing.JButton();
+        jBotonElimDoc = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
-        jButton2 = new javax.swing.JButton();
+        jBotonMaterias = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
-        jButton3 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jBotonUsuarios = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        jBotonAyuda = new javax.swing.JButton();
+
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(840, 640));
@@ -109,35 +179,12 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestionar Docentes"));
 
-        jBotonRegDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/add.png"))); // NOI18N
-        jBotonRegDoc.setText("Registrar");
-        jBotonRegDoc.addActionListener(new java.awt.event.ActionListener() {
+        jBotonSitRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/book.png"))); // NOI18N
+        jBotonSitRev.setText("Situacion de Revista");
+        jBotonSitRev.setEnabled(false);
+        jBotonSitRev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonRegDocActionPerformed(evt);
-            }
-        });
-
-        jBotonModDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/pencil.png"))); // NOI18N
-        jBotonModDoc.setText("Modificar");
-        jBotonModDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonModDocActionPerformed(evt);
-            }
-        });
-
-        jBotonElimDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/delete.png"))); // NOI18N
-        jBotonElimDoc.setText("Eliminar");
-        jBotonElimDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonElimDocActionPerformed(evt);
-            }
-        });
-
-        jBotonElimDoc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/book.png"))); // NOI18N
-        jBotonElimDoc1.setText("Situacion de Revista");
-        jBotonElimDoc1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonElimDoc1ActionPerformed(evt);
+                jBotonSitRevActionPerformed(evt);
             }
         });
 
@@ -145,21 +192,11 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBotonRegDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-            .addComponent(jBotonModDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBotonElimDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBotonElimDoc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBotonSitRev, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jBotonRegDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBotonModDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBotonElimDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBotonElimDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jBotonSitRev, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 255));
@@ -167,6 +204,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jBotonAsignHora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/clock_add.png"))); // NOI18N
         jBotonAsignHora.setText("Designar");
+        jBotonAsignHora.setEnabled(false);
         jBotonAsignHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonAsignHoraActionPerformed(evt);
@@ -175,18 +213,20 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jBotonElimHora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/clock_delete.png"))); // NOI18N
         jBotonElimHora.setText("Eliminar");
+        jBotonElimHora.setEnabled(false);
         jBotonElimHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonElimHoraActionPerformed(evt);
             }
         });
 
-        jBotonAsignHora1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/clock.png"))); // NOI18N
-        jBotonAsignHora1.setText("Consultar");
-        jBotonAsignHora1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jBotonAsignHora1.addActionListener(new java.awt.event.ActionListener() {
+        jBotonConsHora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/clock.png"))); // NOI18N
+        jBotonConsHora.setText("Consultar");
+        jBotonConsHora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBotonConsHora.setEnabled(false);
+        jBotonConsHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonAsignHora1ActionPerformed(evt);
+                jBotonConsHoraActionPerformed(evt);
             }
         });
 
@@ -194,14 +234,14 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBotonAsignHora, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+            .addComponent(jBotonAsignHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jBotonElimHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBotonAsignHora1, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+            .addComponent(jBotonConsHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jBotonAsignHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonConsHora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBotonAsignHora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -214,6 +254,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jBotonRegLic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/report_add.png"))); // NOI18N
         jBotonRegLic.setText("Registrar");
+        jBotonRegLic.setEnabled(false);
         jBotonRegLic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonRegLicActionPerformed(evt);
@@ -222,6 +263,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jBotonModLic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/report_edit.png"))); // NOI18N
         jBotonModLic.setText("Modificar");
+        jBotonModLic.setEnabled(false);
         jBotonModLic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonModLicActionPerformed(evt);
@@ -230,17 +272,19 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jBotonElimLic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/report_delete.png"))); // NOI18N
         jBotonElimLic.setText("Eliminar");
+        jBotonElimLic.setEnabled(false);
         jBotonElimLic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonElimLicActionPerformed(evt);
             }
         });
 
-        jBotonAsignHora2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/report.png"))); // NOI18N
-        jBotonAsignHora2.setText("Consultar");
-        jBotonAsignHora2.addActionListener(new java.awt.event.ActionListener() {
+        jBotonConsLic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/report.png"))); // NOI18N
+        jBotonConsLic.setText("Consultar");
+        jBotonConsLic.setEnabled(false);
+        jBotonConsLic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonAsignHora2ActionPerformed(evt);
+                jBotonConsLicActionPerformed(evt);
             }
         });
 
@@ -248,15 +292,15 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBotonRegLic, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+            .addComponent(jBotonRegLic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jBotonModLic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jBotonElimLic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBotonAsignHora2, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+            .addComponent(jBotonConsLic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jBotonAsignHora2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonConsLic, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBotonRegLic, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -270,6 +314,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jBotonRegRen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/hourglass_add.png"))); // NOI18N
         jBotonRegRen.setText("Registrar");
+        jBotonRegRen.setEnabled(false);
         jBotonRegRen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonRegRenActionPerformed(evt);
@@ -278,15 +323,28 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jBotonModRen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/hourglass_go.png"))); // NOI18N
         jBotonModRen.setText("Modificar");
+        jBotonModRen.setEnabled(false);
+        jBotonModRen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonModRenActionPerformed(evt);
+            }
+        });
 
         jBotonElimRen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/hourglass_delete.png"))); // NOI18N
         jBotonElimRen.setText("Eliminar");
-
-        jBotonAsignHora3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/hourglass.png"))); // NOI18N
-        jBotonAsignHora3.setText("Consultar");
-        jBotonAsignHora3.addActionListener(new java.awt.event.ActionListener() {
+        jBotonElimRen.setEnabled(false);
+        jBotonElimRen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonAsignHora3ActionPerformed(evt);
+                jBotonElimRenActionPerformed(evt);
+            }
+        });
+
+        jBotonConsRen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/hourglass.png"))); // NOI18N
+        jBotonConsRen.setText("Consultar");
+        jBotonConsRen.setEnabled(false);
+        jBotonConsRen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonConsRenActionPerformed(evt);
             }
         });
 
@@ -294,15 +352,15 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBotonRegRen, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+            .addComponent(jBotonRegRen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jBotonModRen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jBotonElimRen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBotonAsignHora3, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+            .addComponent(jBotonConsRen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jBotonAsignHora3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBotonConsRen, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBotonRegRen, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -327,7 +385,7 @@ public class IUPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,7 +397,7 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Profesores Activos"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Listado de Profesores"));
 
         jTablaDoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -351,77 +409,107 @@ public class IUPrincipal extends javax.swing.JFrame {
             new String [] {
                 "Nombre y Apellido", "Materia", "Estado"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTablaDoc.setSurrendersFocusOnKeystroke(true);
         jTablaDoc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jTablaDocPropertyChange(evt);
             }
         });
+        jScrollPane1.setViewportView(jTablaDoc);
+        jTablaDoc.getColumnModel().getColumn(0).setResizable(false);
 
         jBotonActGrillaDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/arrow_refresh.png"))); // NOI18N
         jBotonActGrillaDoc.setText("Actualizar Grilla");
 
         jLabel1.setText("NOTA:");
 
+        jBotonRegDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/add.png"))); // NOI18N
+        jBotonRegDoc.setText("Registrar");
+        jBotonRegDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonRegDocActionPerformed(evt);
+            }
+        });
+
+        jBotonModDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/pencil.png"))); // NOI18N
+        jBotonModDoc.setText("Modificar");
+        jBotonModDoc.setEnabled(false);
+        jBotonModDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonModDocActionPerformed(evt);
+            }
+        });
+
+        jBotonConsDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/group.png"))); // NOI18N
+        jBotonConsDoc.setText("Consultar");
+        jBotonConsDoc.setEnabled(false);
+        jBotonConsDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonConsDocActionPerformed(evt);
+            }
+        });
+
+        jBotonElimDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/delete.png"))); // NOI18N
+        jBotonElimDoc.setText("Eliminar");
+        jBotonElimDoc.setEnabled(false);
+        jBotonElimDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonElimDocActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jBotonActGrillaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jBotonActGrillaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jBotonRegDoc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBotonConsDoc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBotonModDoc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBotonElimDoc)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBotonRegDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotonModDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotonConsDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotonElimDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonActGrillaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Nuevos Profesores"));
-
-        jBotonActGrillaDoc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/arrow_refresh.png"))); // NOI18N
-        jBotonActGrillaDoc1.setText("Actualizar Grilla");
-
-        jLabel2.setText("NOTA:");
-
-        jTablaDocNuevo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nombre y Apellido", "Materia", "Fecha de Ingreso"
-            }
-        ));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jBotonActGrillaDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBotonActGrillaDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -429,70 +517,53 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator1)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jToolBar1.setRollover(true);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/group.png"))); // NOI18N
-        jButton1.setText("Docentes");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBotonMaterias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/book_open.png"))); // NOI18N
+        jBotonMaterias.setText("Materias");
+        jBotonMaterias.setFocusable(false);
+        jBotonMaterias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotonMaterias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotonMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBotonMateriasActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton1);
-        jToolBar1.add(jSeparator2);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/book_open.png"))); // NOI18N
-        jButton2.setText("Materias");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton2);
+        jToolBar1.add(jBotonMaterias);
         jToolBar1.add(jSeparator3);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/folder_user.png"))); // NOI18N
-        jButton3.setText("Usuarios");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jBotonUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/folder_user.png"))); // NOI18N
+        jBotonUsuarios.setText("Usuarios");
+        jBotonUsuarios.setFocusable(false);
+        jBotonUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotonUsuarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotonUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jBotonUsuariosActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton3);
+        jToolBar1.add(jBotonUsuarios);
+        jToolBar1.add(jSeparator1);
 
-        jMenu1.setText("Archivo");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edición");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Ayuda");
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
+        jBotonAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/help.png"))); // NOI18N
+        jBotonAyuda.setText("Ayuda");
+        jBotonAyuda.setFocusable(false);
+        jBotonAyuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotonAyuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotonAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonAyudaActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBotonAyuda);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -509,13 +580,10 @@ public class IUPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -525,9 +593,10 @@ public class IUPrincipal extends javax.swing.JFrame {
     
     //EVENTOS CON LA INTERFAZ
     private void jBotonElimDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimDocActionPerformed
-        IUUsuarioConsultar miPrincipalUsuario = new IUUsuarioConsultar();
-        miPrincipalUsuario.setVisible(true);
+        IUDocenteEliminar miEliminarDocente = new IUDocenteEliminar();
+        miEliminarDocente.setVisible(true);
         //miEliminarDocente.setVisible(true);    }//GEN-LAST:event_jBotonElimDocActionPerformed
+        
     }
     
     private void jBotonRegRenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegRenActionPerformed
@@ -550,8 +619,8 @@ public class IUPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonModDocActionPerformed
 
     private void jBotonAsignHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAsignHoraActionPerformed
-        IUDHoraDesignar miAsignarHoraDocente = new IUDHoraDesignar();
-        miAsignarHoraDocente.setVisible(true);      
+        IUDHoraDesignar miDesignarHoraDocente = new IUDHoraDesignar();
+        miDesignarHoraDocente.setVisible(true);      
 
     }//GEN-LAST:event_jBotonAsignHoraActionPerformed
 
@@ -566,46 +635,67 @@ public class IUPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonRegLicActionPerformed
 
     private void jBotonElimLicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimLicActionPerformed
-        
+        IUDLicenciaEliminar miEliminarLicencia = new IUDLicenciaEliminar();
+        miEliminarLicencia.setVisible(true);
     }//GEN-LAST:event_jBotonElimLicActionPerformed
 
     private void jBotonModLicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonModLicActionPerformed
-
+        IUDLicenciaModificar miModificarLicencia = new IUDLicenciaModificar();
+        miModificarLicencia.setVisible(true);
     }//GEN-LAST:event_jBotonModLicActionPerformed
 
-    private void jBotonElimDoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimDoc1ActionPerformed
+    private void jBotonSitRevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonSitRevActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBotonElimDoc1ActionPerformed
+    }//GEN-LAST:event_jBotonSitRevActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        IUMateriaConsultar miPrincipalMateria = new IUMateriaConsultar();
+    private void jBotonMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonMateriasActionPerformed
+        IUMateriaPrincipal miPrincipalMateria = new IUMateriaPrincipal();
         miPrincipalMateria.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBotonMateriasActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        IUUsuarioConsultar miPrincipalUsuario = new IUUsuarioConsultar();
-        miPrincipalUsuario.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jBotonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonUsuariosActionPerformed
+        IUUsuarioPrincipal miUsuarioPrincipal = new IUUsuarioPrincipal();
+        miUsuarioPrincipal.setVisible(true);
+    }//GEN-LAST:event_jBotonUsuariosActionPerformed
 
     private void jTablaDocPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTablaDocPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jTablaDocPropertyChange
 
-    private void jBotonAsignHora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAsignHora1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBotonAsignHora1ActionPerformed
+    private void jBotonConsHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonConsHoraActionPerformed
+        IUDHoraConsultar miHoraConsultar = new IUDHoraConsultar();
+        miHoraConsultar.setVisible(true);
+    }//GEN-LAST:event_jBotonConsHoraActionPerformed
 
-    private void jBotonAsignHora2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAsignHora2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBotonAsignHora2ActionPerformed
+    private void jBotonConsLicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonConsLicActionPerformed
+        IUDLicenciaConsultar miConsultarLicencia = new IUDLicenciaConsultar();
+        miConsultarLicencia.setVisible(true);
+    }//GEN-LAST:event_jBotonConsLicActionPerformed
 
-    private void jBotonAsignHora3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAsignHora3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBotonAsignHora3ActionPerformed
+    private void jBotonConsRenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonConsRenActionPerformed
+        IUDRenunciaConsultar miConsultarRenuncia = new IUDRenunciaConsultar();
+        miConsultarRenuncia.setVisible(true);        
+    }//GEN-LAST:event_jBotonConsRenActionPerformed
+
+    private void jBotonConsDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonConsDocActionPerformed
+        IUDocenteConsultar miConsultarDocente = new IUDocenteConsultar();
+        miConsultarDocente.setVisible(true);
+    }//GEN-LAST:event_jBotonConsDocActionPerformed
+
+    private void jBotonModRenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonModRenActionPerformed
+        IUDRenunciaModificar miModificarRenuncia = new IUDRenunciaModificar();
+        miModificarRenuncia.setVisible(true);
+    }//GEN-LAST:event_jBotonModRenActionPerformed
+
+    private void jBotonElimRenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimRenActionPerformed
+        IUDRenunciaEliminar miEliminarRenuncia = new IUDRenunciaEliminar();
+        miEliminarRenuncia.setVisible(true);
+    }//GEN-LAST:event_jBotonElimRenActionPerformed
+
+    private void jBotonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAyudaActionPerformed
+        JOptionPane.showMessageDialog(null, "INGENIERO INFORMATICO IGNACIO SARAVIA");
+
+    }//GEN-LAST:event_jBotonAyudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -638,33 +728,29 @@ public class IUPrincipal extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonActGrillaDoc;
-    private javax.swing.JButton jBotonActGrillaDoc1;
     private javax.swing.JButton jBotonAsignHora;
-    private javax.swing.JButton jBotonAsignHora1;
-    private javax.swing.JButton jBotonAsignHora2;
-    private javax.swing.JButton jBotonAsignHora3;
+    private javax.swing.JButton jBotonAyuda;
+    private javax.swing.JButton jBotonConsDoc;
+    private javax.swing.JButton jBotonConsHora;
+    private javax.swing.JButton jBotonConsLic;
+    private javax.swing.JButton jBotonConsRen;
     private javax.swing.JButton jBotonElimDoc;
-    private javax.swing.JButton jBotonElimDoc1;
     private javax.swing.JButton jBotonElimHora;
     private javax.swing.JButton jBotonElimLic;
     private javax.swing.JButton jBotonElimRen;
+    private javax.swing.JButton jBotonMaterias;
     private javax.swing.JButton jBotonModDoc;
     private javax.swing.JButton jBotonModLic;
     private javax.swing.JButton jBotonModRen;
     private javax.swing.JButton jBotonRegDoc;
     private javax.swing.JButton jBotonRegLic;
     private javax.swing.JButton jBotonRegRen;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jBotonSitRev;
+    private javax.swing.JButton jBotonUsuarios;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -672,12 +758,10 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JTable jTablaDoc;
-    private javax.swing.JTable jTablaDocNuevo;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 

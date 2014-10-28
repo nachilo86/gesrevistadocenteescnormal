@@ -5,13 +5,20 @@
 
 package modelo;
 
-/** @author IgnacioSaravia <ILSSoftware2014>  */
-public class Usuario {
+import java.util.Date;
 
+/** @author IgnacioSaravia <ILSSoftware2014>  */
+public class Usuario extends Persona{
+
+    private int codpersona;
+    private int codusuario;
+    
     private String nombreUsuario;
     private String password;
     private int tipoUsuario;
     private String ocupacion;
+    private Date fechaIngreso;
+    private String estado;
     
     //GETTERS AND SETTERS
 
@@ -71,6 +78,20 @@ public class Usuario {
         this.ocupacion = ocupacion;
     }
     
+        /**
+     * @return the fechaIngreso
+     */
+    public Date getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    /**
+     * @param fechaIngreso the fechaIngreso to set
+     */
+    public void setFechaIngreso(Date fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+    
     //METODOS
     
     public void registrarUsuario()
@@ -97,4 +118,20 @@ public class Usuario {
     {
         
     }
+    
+    public void verificarUsuario()
+    {
+        
+    }
+
+    public void verificarEstado()
+    {      
+        
+    }
+    
+    public void actualizarEstado()
+    {
+        
+    }
+
 }

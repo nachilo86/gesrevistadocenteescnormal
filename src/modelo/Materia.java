@@ -8,32 +8,14 @@ package modelo;
 /** @author IgnacioSaravia <ILSSoftware2014>  */
 public class Materia {
 
+    private int codmateria;
+    
     private String nombreMateria;
     private int curso;
     private int division;
     private int totalHorasMateria;
     private String estadoMateria;
     
-    public void registrarMateria()
-    {
-        
-    }
-    
-    public void consultarMateria()
-    {
-        
-    }
-    
-    public void modificarMateria()
-    {
-        
-    }
-    
-    public void eliminarMateria()
-    {
-        
-    }
-
     /**
      * @return the nombreMateria
      */
@@ -102,5 +84,35 @@ public class Materia {
      */
     public void setEstadoMateria(String estadoMateria) {
         this.estadoMateria = estadoMateria;
+    }
+    
+    public void registrarMateria()
+    {
+        
+    }
+    
+    public void consultarMateria()
+    {
+        
+    }
+    
+    public void modificarMateria()
+    {
+        
+    }
+    
+    public void eliminarMateria()
+    {
+        
+    }
+
+    public void verificarMateria()
+    {
+        
+    }
+    
+    public void actualizarEstado()
+    {
+        
     }
 }

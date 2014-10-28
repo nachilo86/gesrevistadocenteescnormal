@@ -9,13 +9,15 @@ import java.util.Date;
 
 /** @author ILS  */
 public class Persona {
+    private int codpersona;
+    
     private String nombre;
     private String apellido;
     private int dni;
     private String domicilio;
     private String localidad;
     private String telefono;
-    private String numero;
+    private int numero;
     private String barrio;
     private Date fechanacimiento;
     private char sexo;
@@ -136,14 +138,14 @@ public class Persona {
     /**
      * @return the numero
      */
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
     /**
      * @param numero the numero to set
      */
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -180,5 +182,10 @@ public class Persona {
     public void consultarPersona()
     {
         
+    }
+    
+    public void verificarPersona()
+    {
+    
     }
 }

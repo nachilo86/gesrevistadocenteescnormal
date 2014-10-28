@@ -5,7 +5,9 @@
 
 package dao.implementacion;
 
+import dao.MateriaDAO;
+
 /** @author IgnacioSaravia <ILSSoftware2014>  */
-public class MateriaDAOImp {
+public class MateriaDAOImp implements MateriaDAO{
 
 }
