@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-oct-2014 19:13:11 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Usuario" table="usuario" schema="public">
+        <id name="codusuario" type="int">
+            <column name="codusuario" />
+            <span style="color: red;">
+                <generator class="sequence">
+                    <param name="sequence">usuario_codusuario_seq</param>
+                </generator>
+            </span> 
+        </id>
+        <many-to-one name="persona" class="hibernate.mapping.Persona" fetch="select">
+            <column name="codpersona" not-null="true" />
+        </many-to-one>
+        <property name="nombreusuario" type="string">
+            <column name="nombreusuario" length="15" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="15" not-null="true" />
+        </property>
+        <property name="tipousuario" type="string">
+            <column name="tipousuario" length="15" not-null="true" />
+        </property>
+        <property name="ocupacion" type="string">
+            <column name="ocupacion" length="25" not-null="true" />
+        </property>
+        <property name="fechaingreso" type="date">
+            <column name="fechaingreso" length="13" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="15" not-null="true" />
+        </property>
+        <set name="situacionrevistas" inverse="true">
+            <key>
+                <column name="codusuario" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Situacionrevista" />
+        </set>
+        <set name="horadesignadas" inverse="true">
+            <key>
+                <column name="codusuario" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Horadesignada" />
+        </set>
+    </class>
+</hibernate-mapping>

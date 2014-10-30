@@ -11,6 +11,7 @@ import java.util.Date;
 public class SituacionRevista {
     
     private int codsituacionrevista;
+    private int codusuario;
     
     private Date fechaGeneracion;
     

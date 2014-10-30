@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-oct-2014 19:13:11 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Situacionrevista" table="situacionrevista" schema="public">
+        <id name="codsituacionrevista" type="int">
+            <column name="codsituacionrevista" />
+            <span style="color: red;">
+                <generator class="sequence">
+                    <param name="sequence">situacionrevista_codsituacionrevista_seq</param>
+                </generator>
+            </span> 
+        </id>
+        <many-to-one name="usuario" class="hibernate.mapping.Usuario" fetch="select">
+            <column name="codusuario" not-null="true" />
+        </many-to-one>
+        <property name="fechageneracion" type="date">
+            <column name="fechageneracion" length="13" not-null="true" />
+        </property>
+        <set name="horadesignadas" inverse="true">
+            <key>
+                <column name="codsituacionrevista" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Horadesignada" />
+        </set>
+    </class>
+</hibernate-mapping>

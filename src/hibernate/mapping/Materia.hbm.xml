@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-oct-2014 19:13:11 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Materia" table="materia" schema="public">
+        <id name="codmateria" type="int">
+            <column name="codmateria" />
+            <span style="color: red;">
+                <generator class="sequence">
+                    <param name="sequence">materia_codmateria_seq</param>
+                </generator>
+            </span> 
+        </id>
+        <property name="nombremateria" type="string">
+            <column name="nombremateria" length="15" not-null="true" />
+        </property>
+        <property name="curso" type="int">
+            <column name="curso" not-null="true" />
+        </property>
+        <property name="division" type="int">
+            <column name="division" not-null="true" />
+        </property>
+        <property name="totalhorasmateria" type="double">
+            <column name="totalhorasmateria" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="estadomateria" type="string">
+            <column name="estadomateria" length="15" not-null="true" />
+        </property>
+        <set name="horadesignadas" inverse="true">
+            <key>
+                <column name="codmateria" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Horadesignada" />
+        </set>
+    </class>
+</hibernate-mapping>

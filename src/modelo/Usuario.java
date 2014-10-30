@@ -124,11 +124,6 @@ public class Usuario extends Persona{
         
     }
 
-    public void verificarEstado()
-    {      
-        
-    }
-    
     public void actualizarEstado()
     {
         

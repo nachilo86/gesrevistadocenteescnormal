@@ -93,7 +93,7 @@ public class Renuncia {
     {
     }
     
-    public void verificarEstado()
+    public void verificarLicencia()
     {
         
     }

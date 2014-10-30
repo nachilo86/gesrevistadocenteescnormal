@@ -128,7 +128,7 @@ public class Licencia {
         
     }
 
-    public void verificarEstado()
+    public void verificarLicencia()
     {
         
     }

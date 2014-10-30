@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-oct-2014 19:13:11 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Horadesignada" table="horadesignada" schema="public">
+        <id name="codhoradesignada" type="int">
+            <column name="codhoradesignada" />
+            <span style="color: red;">
+                <generator class="sequence">
+                    <param name="sequence">horadesignada_codhoradesignada_seq</param>
+                </generator>
+            </span> 
+        </id>
+        <many-to-one name="usuario" class="hibernate.mapping.Usuario" fetch="select">
+            <column name="codusuario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="situacionrevista" class="hibernate.mapping.Situacionrevista" fetch="select">
+            <column name="codsituacionrevista" not-null="true" />
+        </many-to-one>
+        <many-to-one name="materia" class="hibernate.mapping.Materia" fetch="select">
+            <column name="codmateria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="docente" class="hibernate.mapping.Docente" fetch="select">
+            <column name="coddocente" not-null="true" />
+        </many-to-one>
+        <property name="fechadesignacion" type="date">
+            <column name="fechadesignacion" length="13" not-null="true" />
+        </property>
+        <property name="fechahasta" type="date">
+            <column name="fechahasta" length="13" not-null="true" />
+        </property>
+        <property name="fechaoperacion" type="date">
+            <column name="fechaoperacion" length="13" not-null="true" />
+        </property>
+        <property name="estadohoras" type="string">
+            <column name="estadohoras" length="15" not-null="true" />
+        </property>
+        <property name="caracterdocente" type="string">
+            <column name="caracterdocente" length="20" not-null="true" />
+        </property>
+        <property name="normativa" type="string">
+            <column name="normativa" length="30" not-null="true" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" />
+        </property>
+        <set name="licencias" inverse="true">
+            <key>
+                <column name="codhoradesignada" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Licencia" />
+        </set>
+        <set name="renuncias" inverse="true">
+            <key>
+                <column name="codhoradesignada" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Renuncia" />
+        </set>
+    </class>
+</hibernate-mapping>
