@@ -5,9 +5,13 @@
 
 package dao.implementacion;
 
-import dao.MateriaDAO;
+import dao.PersonaDAO;
+
 
 /** @author IgnacioSaravia <ILSSoftware2014>  */
-public class MateriaDAOImp implements MateriaDAO{
+public class PersonaDAOImpl implements PersonaDAO {
+    
+    //public void registrar (Persona persona){}
+    
 
 }

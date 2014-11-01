@@ -5,17 +5,22 @@
 
 package dao;
 
+import hibernate.mapping.Docente;
+import hibernate.mapping.Materia;
+import java.util.List;
+
 /** @author IgnacioSaravia <ILSSoftware2014>  */
 public interface DocenteDAO {
         /* 1) DEFINO LA INTERFACE */
     /* DEFINO EL METODO INSERTAR */
-    //public void registrar(Persona persona){};
-    
-    //public Persona consultar (int dni){};
+    public void registrarDocente (Docente miDocente);
    
-    //public void modificar
+    public List<Docente> consultarTodo();
     
-    //public void eliminar
+    public Docente consultarDocente(int coddocente);
     
-    //public void List<Persona> seleccionarTodo();
+    public void modificarDocente(Docente miDocente);
+    
+    public void eliminarDocente(Docente miDocente);
+   
 }

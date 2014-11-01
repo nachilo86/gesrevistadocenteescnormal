@@ -79,6 +79,8 @@
                               <Component id="jBotonModMat" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jBotonElimMat" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBotonConsMat" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jBotonActGrillaDoc" min="-2" pref="148" max="-2" attributes="0"/>
@@ -86,7 +88,7 @@
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="487" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -97,6 +99,7 @@
                           <Component id="jBotonRegMat" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="jBotonModMat" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="jBotonElimMat" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="jBotonConsMat" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -117,24 +120,18 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTablaDoc">
+                <Component class="javax.swing.JTable" name="jTablaMat">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="4">
+                      <Table columnCount="4" rowCount="4">
+                        <Column editable="true" title="ID" type="java.lang.Object"/>
                         <Column editable="false" title="Materia" type="java.lang.Object"/>
-                        <Column editable="false" title="Curso" type="java.lang.Object"/>
-                        <Column editable="false" title="Divisi&#xf3;n" type="java.lang.Object"/>
-                        <Column editable="false" title="Carga Horaria" type="java.lang.Object"/>
-                        <Column editable="true" title="Modalidad" type="java.lang.Object"/>
+                        <Column editable="false" title="Ciclo de Estudios" type="java.lang.Object"/>
+                        <Column editable="true" title="Carga Horaria" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -171,6 +168,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Actualizar Grilla"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonActGrillaDocActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -194,10 +194,14 @@
                   <Image iconType="3" name="/iconos/16x16/note_edit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonModMatActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jBotonElimMat">
               <Properties>
@@ -205,9 +209,22 @@
                   <Image iconType="3" name="/iconos/16x16/note_delete.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonElimMatActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBotonConsMat">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/iconos/16x16/note.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Consultar"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonConsMatActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

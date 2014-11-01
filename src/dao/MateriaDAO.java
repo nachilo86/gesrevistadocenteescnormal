@@ -5,18 +5,23 @@
 
 package dao;
 
+import hibernate.mapping.Materia;
+import java.util.List;
+
 /** @author IgnacioSaravia <ILSSoftware2014>  */
 public interface MateriaDAO {
         /* 1) DEFINO LA INTERFACE */
     /* DEFINO EL METODO INSERTAR */
-    //public void registrar(Persona persona){};
-    
-    //public Persona consultar (int dni){};
+  
+    public void registrarMateria (Materia materia);
    
-    //public void modificar
+    public List<Materia> consultarTodo();
     
-    //public void eliminar
+    public Materia consultarMateria(int codmateria);
     
-    //public void List<Persona> seleccionarTodo();
+    public void modificarMateria(Materia miMateria);
+    
+    public void eliminarMateria(Materia miMateria);
+   
 
 }

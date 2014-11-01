@@ -62,6 +62,10 @@ public class Situacionrevista  implements java.io.Serializable {
         this.horadesignadas = horadesignadas;
     }
 
+    public void imprimirSituacion(){}
+    
+    public void generarSituacion(){}
+
 
 
 

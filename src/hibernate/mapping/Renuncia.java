@@ -90,7 +90,33 @@ public class Renuncia  implements java.io.Serializable {
         this.estado = estado;
     }
 
-
+    
+     public void registrarRenuncia()
+    {
+    }
+    
+    public void consultarRenuncia()
+    {
+    }
+    
+    public void modificarRenuncia()
+    {
+    }
+    
+    public void eliminarRenuncia()
+    {
+    }
+    
+    public void verificarLicencia()
+    {
+        
+    }
+    
+    public void actualizarEstado()
+    {
+        
+    }
+    
 
 
 }

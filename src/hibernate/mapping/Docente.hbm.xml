@@ -6,11 +6,9 @@
     <class name="hibernate.mapping.Docente" table="docente" schema="public">
         <id name="coddocente" type="int">
             <column name="coddocente" />
-            <span style="color: red;">
                 <generator class="sequence">
                     <param name="sequence">docente_coddocente_seq</param>
                 </generator>
-            </span>         
         </id>
         <many-to-one name="persona" class="hibernate.mapping.Persona" fetch="select">
             <column name="codpersona" not-null="true" />
@@ -21,8 +19,8 @@
         <property name="fechatitulo" type="date">
             <column name="fechatitulo" length="13" not-null="true" />
         </property>
-        <property name="totalhorasactivas" type="double">
-            <column name="totalhorasactivas" precision="17" scale="17" not-null="true" />
+        <property name="totalhorasactivas" type="int">
+            <column name="totalhorasactivas" not-null="true" />
         </property>
         <property name="estado" type="string">
             <column name="estado" length="15" not-null="true" />

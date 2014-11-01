@@ -1,26 +1,81 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista.materia;
 
+import dao.MateriaDAO;
+import dao.implementacion.MateriaDAOImpl;
+import hibernate.mapping.Materia;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author ILS
- */
+/* @author ILS  */
 public class IUMateriaPrincipal extends javax.swing.JFrame {
+    /* Creates new form IUPrincipal */
+    private MateriaDAO miMateriaDAO = new MateriaDAOImpl();
+    
+    public  static Materia miMateria;
+    private String tituloVentana;
 
-    /**
-     * Creates new form IUPrincipal
-     */
-    public IUMateriaPrincipal() {
-        initComponents();
+    public void setTitulo (String tituloVentana){
+        this.setTitle(tituloVentana); 
+    }
+    
+    private void cargarTabla()
+    {
+        limpiarTabla();
+        List<Materia> listadoMateria = miMateriaDAO.consultarTodo();
+               
+        String[] datosMateria=new String[4];
 
+        for (Materia materia:listadoMateria){
+            datosMateria[0]= String.valueOf(materia.getCodmateria());
+            datosMateria[1]= materia.getNombremateria();
+            datosMateria[2]= materia.getCiclodeestudios();
+            datosMateria[3]= String.valueOf(materia.getTotalhorasmateria());
+            
+            DefaultTableModel modeloTablaMat=(DefaultTableModel)jTablaMat.getModel();
+
+            modeloTablaMat.addRow(datosMateria);
+           
+        }
     }
 
+    private void actualizarTabla()
+    {
+        cargarTabla();
+    }
+    
+    private void limpiarTabla()
+    {
+        DefaultTableModel modeloTablaMat = (DefaultTableModel)jTablaMat.getModel();
+        while(jTablaMat.getRowCount() != 0)
+                modeloTablaMat.removeRow(0);
+    }
+    
+    public IUMateriaPrincipal() {
+        initComponents();
+        setLocationRelativeTo(null); //centra el formulario en pantalla
+        DefaultTableModel modeloTablaMat=(DefaultTableModel)jTablaMat.getModel();
+        cargarTabla();
+        jTablaMat.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e){            
+                jBotonModMat.setEnabled(true);
+                jBotonElimMat.setEnabled(true);
+                jBotonConsMat.setEnabled(true);             
+            }
+            
+            public void mousePressed(MouseEvent e){
+                if (e.getClickCount()==2){
+                    JOptionPane.showMessageDialog(null, "aqui dispara la consulta de la materia");
+                }
+            }
+        }
+                );       
+    }    
+  
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,12 +88,13 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTablaDoc = new javax.swing.JTable();
+        jTablaMat = new javax.swing.JTable();
         jBotonActGrillaDoc = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jBotonRegMat = new javax.swing.JButton();
         jBotonModMat = new javax.swing.JButton();
         jBotonElimMat = new javax.swing.JButton();
+        jBotonConsMat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(840, 640));
@@ -47,29 +103,34 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Listado de Materias"));
 
-        jTablaDoc.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaMat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Materia", "Curso", "División", "Carga Horaria", "Modalidad"
+                "ID", "Materia", "Ciclo de Estudios", "Carga Horaria"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                true, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTablaDoc);
+        jScrollPane1.setViewportView(jTablaMat);
 
         jBotonActGrillaDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/arrow_refresh.png"))); // NOI18N
         jBotonActGrillaDoc.setText("Actualizar Grilla");
+        jBotonActGrillaDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonActGrillaDocActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("NOTA:");
 
@@ -83,6 +144,7 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
 
         jBotonModMat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/note_edit.png"))); // NOI18N
         jBotonModMat.setText("Modificar");
+        jBotonModMat.setEnabled(false);
         jBotonModMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonModMatActionPerformed(evt);
@@ -91,9 +153,19 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
 
         jBotonElimMat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/note_delete.png"))); // NOI18N
         jBotonElimMat.setText("Eliminar");
+        jBotonElimMat.setEnabled(false);
         jBotonElimMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonElimMatActionPerformed(evt);
+            }
+        });
+
+        jBotonConsMat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/16x16/note.png"))); // NOI18N
+        jBotonConsMat.setText("Consultar");
+        jBotonConsMat.setEnabled(false);
+        jBotonConsMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonConsMatActionPerformed(evt);
             }
         });
 
@@ -109,12 +181,14 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBotonModMat)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBotonElimMat))
+                        .addComponent(jBotonElimMat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBotonConsMat))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jBotonActGrillaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(487, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +196,8 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonRegMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBotonModMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBotonElimMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBotonElimMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotonConsMat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonActGrillaDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,8 +232,22 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotonElimMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimMatActionPerformed
-        IUMateriaEliminar miMateriaEliminar = new IUMateriaEliminar();
-        miMateriaEliminar.setVisible(true);    
+        if ((jBotonElimMat.isEnabled() == true) && (jTablaMat.getRowCount() > 0))
+        {              
+            Materia miMateria = new Materia();
+            int codmateria;
+            int fila = jTablaMat.getSelectedRow();
+            int columna = 0;              
+            codmateria = Integer.parseInt(jTablaMat.getValueAt(fila, columna).toString());
+                
+            miMateria = miMateriaDAO.consultarMateria(codmateria);
+            
+            IUMateriaEliminar miMateriaEliminar = new IUMateriaEliminar(null,true,miMateria);
+            miMateriaEliminar.setVisible(true);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No existen materias para Modificar");
+
         //miEliminarDocente.setVisible(true);    }//GEN-LAST:event_jBotonElimMatActionPerformed
     }
     
@@ -169,9 +258,39 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonRegMatActionPerformed
 
     private void jBotonModMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonModMatActionPerformed
-        IUMateriaModificar miModificarMateria = new IUMateriaModificar();
-        miModificarMateria.setVisible(true);
+        //enviar el objeto Materia     
+        if (jBotonModMat.isEnabled() == true)
+        {              
+            Materia miMateria = new Materia();
+            int codmateria;
+            int fila = jTablaMat.getSelectedRow();
+            int columna = 0;              
+            codmateria = Integer.parseInt(jTablaMat.getValueAt(fila, columna).toString());
+                
+            miMateria = miMateriaDAO.consultarMateria(codmateria);
+            IUMateriaModificar miModificarMateria = new IUMateriaModificar(null,true, miMateria);
+            miModificarMateria.setVisible(true);
+        }
     }//GEN-LAST:event_jBotonModMatActionPerformed
+
+    private void jBotonActGrillaDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonActGrillaDocActionPerformed
+        actualizarTabla();
+    }//GEN-LAST:event_jBotonActGrillaDocActionPerformed
+
+    private void jBotonConsMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonConsMatActionPerformed
+        if (jBotonConsMat.isEnabled() == true)
+        {              
+            Materia miMateria = new Materia();
+            int codmateria;
+            int fila = jTablaMat.getSelectedRow();
+            int columna = 0;              
+            codmateria = Integer.parseInt(jTablaMat.getValueAt(fila, columna).toString());
+                
+            miMateria = miMateriaDAO.consultarMateria(codmateria);
+            IUMateriaConsultar miConsultarMateria = new IUMateriaConsultar(null,true, miMateria);
+            miConsultarMateria.setVisible(true);
+        }
+    }//GEN-LAST:event_jBotonConsMatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,13 +323,14 @@ public class IUMateriaPrincipal extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonActGrillaDoc;
+    private javax.swing.JButton jBotonConsMat;
     private javax.swing.JButton jBotonElimMat;
-    private javax.swing.JButton jBotonModMat;
+    public javax.swing.JButton jBotonModMat;
     private javax.swing.JButton jBotonRegMat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTablaDoc;
+    private javax.swing.JTable jTablaMat;
     // End of variables declaration//GEN-END:variables
 }

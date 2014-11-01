@@ -4,6 +4,7 @@
  */
 package vista;
 
+import hibernate.mapping.Docente;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -38,18 +39,8 @@ public class IUPrincipal extends javax.swing.JFrame {
      */
     public IUPrincipal() {
         initComponents();
-        
-        //JScrollPane barraTablaDoc = new JScrollPane(jTablaDoc);
-        //modelo              
-        
-        DefaultTableModel modeloTablaDoc = (DefaultTableModel)jTablaDoc.getModel();
-        
-        String[] datos = new String[8];
-        datos[0]="aa";
-        datos[1]="bb";
-        datos[2]="cc";
-        modeloTablaDoc.addRow(datos);
-        
+        setLocationRelativeTo(null);
+        cargarTabla();
 
         //LISTENERS
         jTablaDoc.addMouseListener(new MouseAdapter() {
@@ -72,9 +63,6 @@ public class IUPrincipal extends javax.swing.JFrame {
                 jBotonRegLic.setEnabled(true);
                 jBotonRegRen.setEnabled(true);
                 jBotonSitRev.setEnabled(true);
-                
-                
-                
             }
             
             public void mousePressed(MouseEvent e){
@@ -88,18 +76,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         }
                 );
         
-        
-        
-              
-        //GESTIÓN DE LA TABLA
-        
-
     }
     
         //PROCEDIMIENTOS
 
     private void cargarTabla()
     {
+        DefaultTableModel modeloTablaDoc = (DefaultTableModel)jTablaDoc.getModel();
+        
+        String[] datos = new String[8];
+        datos[0]="aa";
+        datos[1]="bb";
+        datos[2]="cc";
+        modeloTablaDoc.addRow(datos);
         //limpiar();
         //List<Docente> listadoDocente = miDocenteDAO.selectAll();
         //DefaultTableModel modelo=(DefaultTableModel)tblTablaAlumno.getModel();
@@ -120,6 +109,14 @@ public class IUPrincipal extends javax.swing.JFrame {
     private void actualizarTabla()
     {
     }
+    
+    private void limpiarTabla()
+    {
+        DefaultTableModel modeloTablaDoc = (DefaultTableModel)jTablaDoc.getModel();
+        while(jTablaDoc.getRowCount() != 0)
+                modeloTablaDoc.removeRow(0);
+    }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -589,9 +586,8 @@ public class IUPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    
-    //EVENTOS CON LA INTERFAZ
+   
+    //INTERFAZ
     private void jBotonElimDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonElimDocActionPerformed
         IUDocenteEliminar miEliminarDocente = new IUDocenteEliminar();
         miEliminarDocente.setVisible(true);
@@ -651,6 +647,7 @@ public class IUPrincipal extends javax.swing.JFrame {
     private void jBotonMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonMateriasActionPerformed
         IUMateriaPrincipal miPrincipalMateria = new IUMateriaPrincipal();
         miPrincipalMateria.setVisible(true);
+        miPrincipalMateria.setTitulo("GESTION DE MATERIAS");
     }//GEN-LAST:event_jBotonMateriasActionPerformed
 
     private void jBotonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonUsuariosActionPerformed
@@ -678,8 +675,19 @@ public class IUPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonConsRenActionPerformed
 
     private void jBotonConsDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonConsDocActionPerformed
-        IUDocenteConsultar miConsultarDocente = new IUDocenteConsultar();
-        miConsultarDocente.setVisible(true);
+        if (jBotonConsDoc.isEnabled() == true)    
+        {
+            Docente miDocente = new Docente();
+            int coddocente;
+            int fila = jTablaDoc.getSelectedRow();
+            int columna = 0;              
+            coddocente = Integer.parseInt(jTablaDoc.getValueAt(fila, columna).toString());
+                
+            miDocente = miDocenteDAO.consultarDocente(coddocente);
+            
+            IUDocenteConsultar miConsultarDocente = new IUDocenteConsultar(null,true,miDocente);
+            miConsultarDocente.setVisible(true);
+        }
     }//GEN-LAST:event_jBotonConsDocActionPerformed
 
     private void jBotonModRenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonModRenActionPerformed

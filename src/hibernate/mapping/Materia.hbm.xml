@@ -6,11 +6,9 @@
     <class name="hibernate.mapping.Materia" table="materia" schema="public">
         <id name="codmateria" type="int">
             <column name="codmateria" />
-            <span style="color: red;">
                 <generator class="sequence">
                     <param name="sequence">materia_codmateria_seq</param>
                 </generator>
-            </span> 
         </id>
         <property name="nombremateria" type="string">
             <column name="nombremateria" length="15" not-null="true" />
@@ -21,11 +19,17 @@
         <property name="division" type="int">
             <column name="division" not-null="true" />
         </property>
-        <property name="totalhorasmateria" type="double">
-            <column name="totalhorasmateria" precision="17" scale="17" not-null="true" />
+        <property name="totalhorasmateria" type="int">
+            <column name="totalhorasmateria" not-null="true" />
         </property>
         <property name="estadomateria" type="string">
             <column name="estadomateria" length="15" not-null="true" />
+        </property>
+        <property name="ciclodeestudios" type="string">
+            <column name="ciclodeestudios" length="15" not-null="true" />
+        </property>
+        <property name="turno" type="string">
+            <column name="turno" length="10" not-null="true" />
         </property>
         <set name="horadesignadas" inverse="true">
             <key>

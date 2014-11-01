@@ -150,7 +150,30 @@ public class Persona  implements java.io.Serializable {
         this.usuarios = usuarios;
     }
 
-
+    public void registrarPersona()
+    {
+        
+    }
+    
+    public void modificarPersona()
+    {
+        
+    }
+    
+    public void eliminarPersona()
+    {
+        
+    }
+    
+    public void consultarPersona()
+    {
+        
+    }
+    
+    public void verificarPersona()
+    {
+    
+    }
 
 
 }

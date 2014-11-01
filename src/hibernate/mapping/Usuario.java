@@ -121,6 +121,40 @@ public class Usuario  implements java.io.Serializable {
         this.horadesignadas = horadesignadas;
     }
 
+    public void registrarUsuario()
+    {
+        
+    }
+    
+    public void consultarUsuario()
+    {
+        
+    }
+    
+    public void modificarUsuario()
+    {
+        
+    }
+    
+    public void eliminarUsuario()
+    {
+        
+    }
+    
+    public void validarUsuario()
+    {
+        
+    }
+    
+    public void verificarUsuario()
+    {
+        
+    }
+
+    public void actualizarEstado()
+    {
+        
+    }
 
 
 

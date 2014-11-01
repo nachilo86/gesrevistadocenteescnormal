@@ -15,29 +15,35 @@ public class Materia  implements java.io.Serializable {
      private String nombremateria;
      private int curso;
      private int division;
-     private double totalhorasmateria;
+     private int totalhorasmateria;
      private String estadomateria;
+     private String ciclodeestudios;
+     private String turno;
      private Set horadesignadas = new HashSet(0);
 
     public Materia() {
     }
 
 	
-    public Materia(int codmateria, String nombremateria, int curso, int division, double totalhorasmateria, String estadomateria) {
+    public Materia(int codmateria, String nombremateria, int curso, int division, int totalhorasmateria, String estadomateria, String ciclodeestudios, String turno) {
         this.codmateria = codmateria;
         this.nombremateria = nombremateria;
         this.curso = curso;
         this.division = division;
         this.totalhorasmateria = totalhorasmateria;
         this.estadomateria = estadomateria;
+        this.ciclodeestudios = ciclodeestudios;
+        this.turno = turno;
     }
-    public Materia(int codmateria, String nombremateria, int curso, int division, double totalhorasmateria, String estadomateria, Set horadesignadas) {
+    public Materia(int codmateria, String nombremateria, int curso, int division, int totalhorasmateria, String estadomateria, String ciclodeestudios, String turno, Set horadesignadas) {
        this.codmateria = codmateria;
        this.nombremateria = nombremateria;
        this.curso = curso;
        this.division = division;
        this.totalhorasmateria = totalhorasmateria;
        this.estadomateria = estadomateria;
+       this.ciclodeestudios = ciclodeestudios;
+       this.turno = turno;
        this.horadesignadas = horadesignadas;
     }
    
@@ -69,11 +75,11 @@ public class Materia  implements java.io.Serializable {
     public void setDivision(int division) {
         this.division = division;
     }
-    public double getTotalhorasmateria() {
+    public int getTotalhorasmateria() {
         return this.totalhorasmateria;
     }
     
-    public void setTotalhorasmateria(double totalhorasmateria) {
+    public void setTotalhorasmateria(int totalhorasmateria) {
         this.totalhorasmateria = totalhorasmateria;
     }
     public String getEstadomateria() {
@@ -83,6 +89,23 @@ public class Materia  implements java.io.Serializable {
     public void setEstadomateria(String estadomateria) {
         this.estadomateria = estadomateria;
     }
+    
+    public void setCiclodeestudios (String ciclodeestudios){
+        this.ciclodeestudios = ciclodeestudios;
+    }
+    
+    public String getCiclodeestudios (){
+        return this.ciclodeestudios;
+    }
+    
+    public void setTurno(String turno){
+        this.turno = turno;
+    }
+    
+    public  String getTurno(){
+        return this.turno;
+    }
+    
     public Set getHoradesignadas() {
         return this.horadesignadas;
     }
@@ -91,7 +114,35 @@ public class Materia  implements java.io.Serializable {
         this.horadesignadas = horadesignadas;
     }
 
+    public void registrarMateria()
+    {
+        
+    }
+    
+    public void consultarMateria()
+    {
+        
+    }
+    
+    public void modificarMateria()
+    {
+        
+    }
+    
+    public void eliminarMateria()
+    {
+        
+    }
 
+    public void verificarMateria()
+    {
+        
+    }
+    
+    public void actualizarEstado()
+    {
+        
+    }
 
 
 }

@@ -100,7 +100,36 @@ public class Licencia  implements java.io.Serializable {
         this.estado = estado;
     }
 
+        public void registrarLicencia()
+    {
+        
+    }
+    
+    public void consultarLicencia()
+    {
+        
+    }
+    
+    public void modificarLicencia()
+    {
+        
+    }
+    
+    public void eliminarLicencia()
+    {
+        
+    }
 
+    public void verificarLicencia()
+    {
+        
+    }
+    
+    public void actualizarEstado()
+    {
+        
+    }
+   
 
 
 }

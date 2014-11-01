@@ -16,7 +16,7 @@ public class Docente  implements java.io.Serializable {
      private Persona persona;
      private String titulo;
      private Date fechatitulo;
-     private double totalhorasactivas;
+     private int totalhorasactivas;
      private String estado;
      private Date fechaingreso;
      private Set horadesignadas = new HashSet(0);
@@ -25,7 +25,7 @@ public class Docente  implements java.io.Serializable {
     }
 
 	
-    public Docente(int coddocente, Persona persona, String titulo, Date fechatitulo, double totalhorasactivas, String estado, Date fechaingreso) {
+    public Docente(int coddocente, Persona persona, String titulo, Date fechatitulo, int totalhorasactivas, String estado, Date fechaingreso) {
         this.coddocente = coddocente;
         this.persona = persona;
         this.titulo = titulo;
@@ -34,7 +34,7 @@ public class Docente  implements java.io.Serializable {
         this.estado = estado;
         this.fechaingreso = fechaingreso;
     }
-    public Docente(int coddocente, Persona persona, String titulo, Date fechatitulo, double totalhorasactivas, String estado, Date fechaingreso, Set horadesignadas) {
+    public Docente(int coddocente, Persona persona, String titulo, Date fechatitulo, int totalhorasactivas, String estado, Date fechaingreso, Set horadesignadas) {
        this.coddocente = coddocente;
        this.persona = persona;
        this.titulo = titulo;
@@ -73,11 +73,11 @@ public class Docente  implements java.io.Serializable {
     public void setFechatitulo(Date fechatitulo) {
         this.fechatitulo = fechatitulo;
     }
-    public double getTotalhorasactivas() {
+    public int getTotalhorasactivas() {
         return this.totalhorasactivas;
     }
     
-    public void setTotalhorasactivas(double totalhorasactivas) {
+    public void setTotalhorasactivas(int totalhorasactivas) {
         this.totalhorasactivas = totalhorasactivas;
     }
     public String getEstado() {

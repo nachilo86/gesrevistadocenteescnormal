@@ -6,11 +6,9 @@
     <class name="hibernate.mapping.Licencia" table="licencia" schema="public">
         <id name="codlicencia" type="int">
             <column name="codlicencia" />
-            <span style="color: red;">
                 <generator class="sequence">
                     <param name="sequence">licencia_codlicencia_seq</param>
                 </generator>
-            </span> 
         </id>
         <many-to-one name="horadesignada" class="hibernate.mapping.Horadesignada" fetch="select">
             <column name="codhoradesignada" not-null="true" />

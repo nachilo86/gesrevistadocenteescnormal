@@ -160,7 +160,29 @@ public class Horadesignada  implements java.io.Serializable {
         this.renuncias = renuncias;
     }
 
-
+    public void designarHoras()
+    {
+        
+    }
+      
+    public void eliminarHora()
+    {
+    }
+    
+    public void consultarHora()
+    {
+        
+    }
+    
+    public void verificarEstado()
+    {
+        
+    }
+    
+    public void actualizarEstado()
+    {
+        
+    }
 
 
 }

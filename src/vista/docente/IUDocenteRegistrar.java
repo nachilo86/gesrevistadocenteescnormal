@@ -17,6 +17,7 @@ public class IUDocenteRegistrar extends javax.swing.JFrame {
      */
     public IUDocenteRegistrar() {
         initComponents();
+        
     }
 
     /**
